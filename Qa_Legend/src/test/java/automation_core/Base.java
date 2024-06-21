@@ -56,7 +56,7 @@ public WebDriver driver;
 		{
 			takeScreenShot(result);
 		}
-	driver.close();
+	//driver.close();
 		
 	}
 	
