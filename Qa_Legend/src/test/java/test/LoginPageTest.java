@@ -8,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
+import constants.Constants;
+import constants.Messages;
 import data_provider.Data_Providers;
 import page_object.HomePage;
 import page_object.LoginPage;
@@ -24,15 +26,15 @@ public class LoginPageTest extends Base
 	public void verifyUserLoginWithValidCredential()
 	{
 		
-		String username_value=Excel_Utility.readStringData(0, 0,"Login_Page");
-		String password_value =Excel_Utility.readIntegerData(0, 1,"Login_Page");
+		String username_value=Excel_Utility.readStringData(0, 0,Constants.LOGINPAGE);
+		String password_value =Excel_Utility.readIntegerData(0, 1,Constants.LOGINPAGE);
 		LoginPage login =new LoginPage(driver);
 		login.enterUserName(username_value);
 		login.enterPassword(password_value);
 		HomePage home =login.clickOnLoginButton();
 		String actual_loginmessage= home.getLoginText();
-		String expected_loginmessage=Excel_Utility.readStringData(0, 2,"Login_Page");
-		Assert.assertEquals(actual_loginmessage, expected_loginmessage,"Invalid user");
+		String expected_loginmessage=Excel_Utility.readStringData(0, 2,Constants.LOGINPAGE);
+		Assert.assertEquals(actual_loginmessage, expected_loginmessage,Messages.LOGIN_FAILED);
 		                                                                                                                   
 		
 	}
@@ -47,8 +49,8 @@ public class LoginPageTest extends Base
 		login.enterPassword(password);
 		login.clickOnLoginButton();
 		String actual_errormessage =login.errorMessageInvalidLogin();
-		String expected_errormessage =Excel_Utility.readStringData(0, 3,"Login_Page");
-		Assert.assertEquals(actual_errormessage,expected_errormessage,"Login is successful");
+		String expected_errormessage =Excel_Utility.readStringData(0, 3,Constants.LOGINPAGE);
+		Assert.assertEquals(actual_errormessage,expected_errormessage,Messages.LOGIN_SUCCESS);
 				
 		
 	}
