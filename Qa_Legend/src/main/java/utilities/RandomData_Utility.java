@@ -8,12 +8,7 @@ public class RandomData_Utility {
 static Faker faker;
 
 
-	public static String getPrefix()
-	{
-		faker =new Faker();
-		String prefix =faker.name().prefix();
-		return prefix;
-	}
+	
 	
 	public static String getFirtName()
 	{
@@ -29,12 +24,6 @@ static Faker faker;
 		return last_name;
 	}
 	
-	public static String getPercent()
-	{
-	faker = new Faker();
-	String salecommission = faker.number().digit();
-	return salecommission;
-	}
 }
 
 

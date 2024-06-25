@@ -7,6 +7,9 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import constants.Constants;
+import constants.Messages;
+
 public class Excel_Utility {
 	
 	static FileInputStream file ;
@@ -16,7 +19,8 @@ public class Excel_Utility {
 	public static String readStringData(int row ,int column,String sheetname) 
 	{
 		try {
-		file = new FileInputStream("C:\\Users\\user\\git\\Qa-Legend\\Qa_Legend\\src\\main\\resources\\TestData.xlsx");
+		String path =Constants.HOME_DIRECTORY+Constants.TEXTDATA_EXCELPATH;	
+		file = new FileInputStream(path);	
 		book =new XSSFWorkbook(file);
 		sheet =book.getSheet(sheetname);
 		Row r = sheet.getRow(row);
@@ -25,14 +29,15 @@ public class Excel_Utility {
 		}
 		catch(Exception e)
 		{
-			throw new RuntimeException("Excel sheet not found");
+			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
 		}
 	}
 	public static String readIntegerData(int row , int column,String sheetname)
 	{
 		try
 		{
-		file = new FileInputStream("C:\\Users\\user\\git\\Qa-Legend\\Qa_Legend\\src\\main\\resources\\TestData.xlsx");
+		String path =Constants.HOME_DIRECTORY+Constants.TEXTDATA_EXCELPATH;	
+		file = new FileInputStream(path);
 		book =new XSSFWorkbook(file);
 		sheet =book.getSheet(sheetname);
 		Row r = sheet.getRow(row);
@@ -42,7 +47,7 @@ public class Excel_Utility {
 		}
 		catch(Exception e)
 		{
-			throw new RuntimeException("Excel sheet not found");
+			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
 		}
 	}
 }

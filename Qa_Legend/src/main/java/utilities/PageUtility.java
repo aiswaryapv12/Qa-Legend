@@ -5,22 +5,22 @@ import org.openqa.selenium.support.ui.Select;
 
 public class PageUtility {
 	
-	
-	public void selectByValue(WebElement element,String value)
+	static int index=3;
+	public static void selectByValue(WebElement element,String value)
 	{
 		Select select = new Select(element);
 		select.selectByValue(value);
 	}
 	
-	public void selectByVisibleText(WebElement element,String visibleText)
+	public static void selectByVisibleText(WebElement element,String visibleText)
 	{
 		Select select =new Select(element);
 		select.selectByVisibleText(visibleText);
 	}
 	
-	public void selectByIndex(WebElement element,int value)
+	public static void selectByRoleIndex(WebElement element)
 	{
 		Select select= new Select(element);
-		select.selectByIndex(value);
+		select.selectByIndex(index);
 	}
 }

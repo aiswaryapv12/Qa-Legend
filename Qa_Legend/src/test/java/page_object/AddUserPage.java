@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
 import utilities.WaitUtility;
 
 public class AddUserPage {
@@ -17,8 +18,6 @@ public class AddUserPage {
 	}
 	
 
-	@FindBy(xpath="//a[@class='btn btn-block btn-primary']")
-	WebElement add_field;
 	@FindBy(xpath="//input[@id='first_name']")
 	WebElement firstname_field;
 	@FindBy(xpath="//input[@id='last_name']")
@@ -35,15 +34,8 @@ public class AddUserPage {
 	WebElement confirmpassword_option;
 	@FindBy(xpath="//button[@id='submit_user_button']")
 	WebElement save_button;
-	@FindBy(xpath="//input[@class='form-control input-sm']")
-	WebElement search_field;
-	@FindBy(className="toast-success")
-	WebElement success_message;
 	
-	public void clickAddUserButton()
-	{
-		add_field.click();
-	}
+	
 	public void enterFirstName(String first_name)
 	{
 		firstname_field.sendKeys(first_name);
@@ -58,8 +50,7 @@ public class AddUserPage {
 	}
 	public void selectFromRole()
 	{
-		Select dropdown= new Select(role_dropdown);
-		dropdown.selectByIndex(3);
+		PageUtility.selectByVisibleText(role_dropdown,"Specialist");
 	}
 	public void enterUserName(String username)
 	{
@@ -73,16 +64,11 @@ public class AddUserPage {
 	{
 		confirmpassword_option.sendKeys(confirmpassword);
 	}
-	public void clickSaveButton()
+	public UsersPage clickSaveButton()
 	{
 		save_button.click();
+		return new UsersPage(driver);
 	}
-	public void searchOnSearchField(String email)
-	{
-		search_field.sendKeys(email);
-	}
-	public void waitForTextToBeInvisible()
-	{
-		WaitUtility.waitForElementToBeInvisible(driver, success_message);
-	}
+	
+
 }

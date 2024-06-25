@@ -45,27 +45,5 @@ public class HomePageTest extends Base {
 		home.clickOnEndTour();
 	}
 	
-	@Test
-	public void verifyEditProfile()
-	{
-		
-		String username_value=Excel_Utility.readStringData(0, 0,Constants.LOGINPAGE);
-		String password_value =Excel_Utility.readIntegerData(0, 1,Constants.LOGINPAGE);
-		LoginPage login =new LoginPage(driver);
-		login.enterUserName(username_value);
-		login.enterPassword(password_value);
-		HomePage home =login.clickOnLoginButton();
-		home.clickOnEndTour();
-		home.clickUserLogoutDashboard();
-		home.clickOnProfileButton();
-		String newlastname_value = RandomData_Utility.getLastName();
-		home.editLastName(newlastname_value);
-		home.clickOnUpdateButton();
-		String actual_editname =home.getUserProfileText();
-		String expected_profilename=Constants.PROFILENAME+newlastname_value;
-		Assert.assertEquals(actual_editname, expected_profilename,Messages.HOME_PROFILEMISMATCH);
-		
-		
-	}
-
+	
 }

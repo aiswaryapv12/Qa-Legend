@@ -24,10 +24,6 @@ public class HomePage {
 	WebElement signout_field;
 	@FindBy(xpath="//a[text()='Profile']")
 	WebElement profiletext_field;
-	@FindBy(xpath ="//input[@id='last_name']")
-	WebElement newlastname_field;
-	@FindBy(xpath="//button[text()='Update']")
-	WebElement update_button;
 	@FindBy(xpath ="//span[text()='User Management']")
 	WebElement user_managementfield;
 	@FindBy(xpath="//span[@class='title' and contains(text(),'Users')]")
@@ -56,32 +52,28 @@ public class HomePage {
 		signout_field.click();
 		return new LoginPage(driver);
 	}
-	public void clickOnProfileButton()
+	public ProfilePage clickOnProfileButton()
 	{
 		profiletext_field.click();
+		return new ProfilePage(driver);
 	}
-	public void editLastName(String newlastname_value)
-	{
-		newlastname_field.clear();
-		newlastname_field.sendKeys(newlastname_value);
-	}
-	public void clickOnUpdateButton()
-	{
-		 update_button.click();
-	}
+	
 	public String getUserProfileText()
 	{
 		String profile_text =userlogout_dashboard.getText();
 		return profile_text;
+		
+		
 	}
-	public void clickUserManagement()
+	public UserManagementPage clickUserManagement()
 	{
 		user_managementfield.click();
+		return new UserManagementPage(driver);
 	}
-	public AddUserPage clickUsersOption()
+	public UsersPage clickUsersOption()
 	{
 		users_option.click();
-		return new AddUserPage(driver);
+		return new UsersPage(driver);
 	}
 	
 }
