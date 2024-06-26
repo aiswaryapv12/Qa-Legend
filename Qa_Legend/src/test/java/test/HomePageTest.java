@@ -44,7 +44,10 @@ public class HomePageTest extends Base {
 		login.enterPassword(password_value);
 		HomePage home=login.clickOnLoginButton();
 		home.clickOnEndTour();
+		String actual_logindate=home.getLoginDate();
+		String expected_logindate=home.getCurrentDate();
+		Assert.assertEquals(actual_logindate, expected_logindate,"Login date mismatch");
+
+	
 	}
-	
-	
 }

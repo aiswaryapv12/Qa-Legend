@@ -18,10 +18,13 @@ public class ResetPage {
 	
 	@FindBy(xpath="//input[@id='email']")
 	WebElement reset_emailfield;
+	
 	@FindBy(xpath ="//button[@class='btn btn-primary']")
 	WebElement sendpassword_resetlink;
+	
 	@FindBy(xpath ="//span[@class='help-block']")
 	WebElement error_messagefield;
+	
 	@FindBy(xpath ="//div[@class='alert alert-success']")
 	WebElement confirmation_messagefield;
 	

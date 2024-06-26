@@ -18,6 +18,7 @@ import constants.Messages;
 import page_object.AddUserPage;
 import page_object.HomePage;
 import page_object.LoginPage;
+import page_object.UserManagementPage;
 import page_object.UsersPage;
 import utilities.Excel_Utility;
 import utilities.RandomData_Utility;
@@ -42,8 +43,8 @@ public class AddUserPageTest extends Base {
 		login.enterPassword(password_value);
 		HomePage home=login.clickOnLoginButton();
 		home.clickOnEndTour();
-		home.clickUserManagement();
-		UsersPage userspage= home.clickUsersOption();
+		UserManagementPage usermanagement= home.clickUserManagement();
+		UsersPage userspage= usermanagement.clickUsersOption();
 		AddUserPage adduser =userspage.clickAddUserButton();
 		adduser.enterFirstName(first_name);
 		adduser.enterLastName(last_name);
@@ -79,8 +80,8 @@ public class AddUserPageTest extends Base {
 		login.enterPassword(password_value);
 		HomePage home=login.clickOnLoginButton();
 		home.clickOnEndTour();
-		home.clickUserManagement();
-		UsersPage userspage= home.clickUsersOption();
+		UserManagementPage usermanagement =home.clickUserManagement();
+		UsersPage userspage= usermanagement.clickUsersOption();
 		AddUserPage adduser =userspage.clickAddUserButton();
 		adduser.enterFirstName(first_name);
 		adduser.enterLastName(last_name);
@@ -90,7 +91,6 @@ public class AddUserPageTest extends Base {
 		adduser.enterPassword(password);
 		adduser.enterConfirmPassword(password);
 		userspage =adduser.clickSaveButton();
-		userspage.searchOnSearchField(username);
 		userspage.waitForTextToBeInvisible();
 		home.clickUserLogoutDashboard();
 		home.clickSignOutButton();

@@ -7,6 +7,7 @@ import automation_core.Base;
 import constants.Constants;
 import page_object.HomePage;
 import page_object.LoginPage;
+import page_object.UserManagementPage;
 import page_object.UsersPage;
 import utilities.Excel_Utility;
 
@@ -24,8 +25,8 @@ public class UsersPageTest extends Base {
 		login.enterPassword(password_value);
 		HomePage home =login.clickOnLoginButton();
 		home.clickOnEndTour();
-		home.clickUserManagement();
-		UsersPage userspage =home.clickUsersOption();
+		UserManagementPage usermanagement=home.clickUserManagement();
+		UsersPage userspage =usermanagement.clickUsersOption();
 		userspage.searchOnSearchField(username_newvalue);
 		
 		String actual_usertext= userspage.getSearchUser();
