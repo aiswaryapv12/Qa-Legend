@@ -22,7 +22,7 @@ public class LoginPageTest extends Base
 {
 	
 	
-	@Test
+	@Test(groups="Sanity")
 	public void verifyUserLoginWithValidCredential()
 	{
 		
@@ -40,7 +40,7 @@ public class LoginPageTest extends Base
 	}
 	
 	
-	@Test(dataProvider="invalidUserCredentials",dataProviderClass=Data_Providers.class)
+	@Test(groups="Regression", dataProvider="invalidUserCredentials",dataProviderClass=Data_Providers.class)
 	public void verifyErrorMessageLoginWithInvalidCredential(String username,String password)
 	{
 		

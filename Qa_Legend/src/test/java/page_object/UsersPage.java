@@ -34,9 +34,11 @@ public class UsersPage {
 	{
 		search_field.sendKeys(username);
 	}
-	public void waitForTextToBeInvisible()
+	public String waitForTextToBeInvisible()
 	{
+		String msg_text=success_message.getText();
 		WaitUtility.waitForElementToBeInvisible(driver, success_message);
+		return msg_text;
 	}
 	public String getSearchUser()
 	{

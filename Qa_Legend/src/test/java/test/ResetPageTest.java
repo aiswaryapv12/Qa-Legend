@@ -14,7 +14,7 @@ import utilities.Excel_Utility;
 
 public class ResetPageTest extends Base {
 	
-	@Test
+	@Test(groups="Sanity")
 	public void verifyErrorMessageWithInvalidEmail()
 	{
 		
@@ -29,7 +29,7 @@ public class ResetPageTest extends Base {
 		
 	}
 	
-	@Test
+	@Test(groups="Smoke")
 	public void verifyResetPassword()
 	{
 		

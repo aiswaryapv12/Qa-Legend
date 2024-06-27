@@ -13,4 +13,6 @@ public class Messages {
 	public static final String USERS_OPTION_NOTENABLED="usersoption is not available";
 	public static final String ROLES_OPTION_NOTENABLED="rolesoption is not available";
 	public static final String AGENTS_OPTION_NOTENABLED="Sales Commission Agents is not available";
+	public static final String USER_SUCCESSMSG="User added successfully";
+	public static final String USER_SUCCESS_ERRORMSG="User not added successfully";
 }
