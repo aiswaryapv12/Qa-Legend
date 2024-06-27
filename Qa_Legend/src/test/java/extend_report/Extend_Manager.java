@@ -94,7 +94,6 @@ public class Extend_Manager {
         return platform;
     }
 
-
 }
 
 
