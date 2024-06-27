@@ -61,6 +61,7 @@ public class UserManagementPageTest extends Base {
 	boolean agents_status =usermanagement.agentsOptionInUserManagement();
 	Assert.assertTrue(agents_status,Messages.AGENTS_OPTION_NOTENABLED);
 	
+	
 	}
 	
 	
