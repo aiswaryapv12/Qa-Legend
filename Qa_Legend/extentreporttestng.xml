@@ -11,7 +11,7 @@
        <class name="test.AddUserPageTest">
 		   <methods>
 			   <include name="verifyUserLoginWithNewlyAddUser"/>
-			   <!--include name=" verifyRolesInUserManagement"/-->
+			   <exclude name="verifyAddUser"/>
 			   </methods>
        </class>
       	<class name="test.HomePageTest"/>
