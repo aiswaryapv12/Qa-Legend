@@ -7,7 +7,7 @@
 	<test name="Test">
 		<parameter name="browser" value="Chrome"></parameter>
 		<classes>
-			<class name="test.AddUserPage" />
+			<class name="test.AddUserPageTest" />
 		</classes>
 	</test> <!--Functuinal Test -->
 </suite> <!--Functional Suite -->
