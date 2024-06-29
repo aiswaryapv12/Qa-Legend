@@ -6,28 +6,26 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ProfilePage {
-	
+
 	WebDriver driver;
-	public ProfilePage(WebDriver driver)
-	{
-		this.driver =driver;
+
+	public ProfilePage(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath ="//input[@id='last_name']")
+	@FindBy(xpath = "//input[@id='last_name']")
 	WebElement newlastname_field;
-	@FindBy(xpath="//button[text()='Update']")
+	@FindBy(xpath = "//button[text()='Update']")
 	WebElement update_button;
-	
-	public void editLastName(String newlastname_value)
-	{
+
+	public void editLastName(String newlastname_value) {
 		newlastname_field.clear();
 		newlastname_field.sendKeys(newlastname_value);
 	}
-	public void clickOnUpdateButton()
-	{
-		 update_button.click();
+
+	public void clickOnUpdateButton() {
+		update_button.click();
 	}
-	
-	
+
 }
