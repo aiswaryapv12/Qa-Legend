@@ -4,10 +4,10 @@
 	<listeners>
 		<listener class-name="listener.AnnotationTransformer"></listener>
 	</listeners>
-  <test  name="Test">
-	   <parameter name="browser" value="Chrome"></parameter>
-    <classes>
-       <class name="test.AddUserPage"/>
-    </classes>
-  </test> <!-- Functuinal Test -->
-</suite> <!-- Functional Suite -->
+	<test name="Test">
+		<parameter name="browser" value="Chrome"></parameter>
+		<classes>
+			<class name="test.AddUserPage" />
+		</classes>
+	</test> <!--Functuinal Test -->
+</suite> <!--Functional Suite -->
