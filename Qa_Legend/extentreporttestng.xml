@@ -8,14 +8,13 @@
 	<test name="Report Test">
 		<parameter name="browser" value="Chrome"></parameter>
 		<classes>
-			<class name="test.AddUserPageTest">
-				<methods>
-					<include name="verifyUserLoginWithNewlyAddUser" />
-					<exclude name="verifyAddUser" />
-				</methods>
-			</class>
+			<class name="test.LoginPageTest" />
 			<class name="test.HomePageTest" />
-			<!--class name="test.RegistrationPageTest"/-->
+			<class name="test.ProfilePageTest" />
+			<class name="test.ResetPageTest" />
+			<class name="test.AddUserPageTest" />
+			<class name="test.UserManagementPageTest" />
+			<class name="test.UsersPageTest" />
 		</classes>
 	</test> <!--Functuinal Test -->
 </suite> <!--Functional Suite -->

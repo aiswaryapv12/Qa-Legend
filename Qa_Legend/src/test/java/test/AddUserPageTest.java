@@ -67,7 +67,6 @@ public class AddUserPageTest extends Base {
 		String email = first_name + last_name + Constants.ID;
 		String username = first_name + last_name;
 		String password = first_name + Constants.NUMBER + last_name;
-
 		LoginPage login = new LoginPage(driver);
 		login.enterUserName(username_value);
 		login.enterPassword(password_value);

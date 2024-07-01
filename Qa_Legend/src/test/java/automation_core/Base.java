@@ -1,6 +1,5 @@
 package automation_core;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,74 +19,61 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 import constants.Constants;
+import utilities.WaitUtility;
 
 public class Base {
-	
-public WebDriver driver;
-public Properties prop;
-public FileInputStream fs;
-	
-	public void initializeBrowser(String browser)
-	{
+
+	public WebDriver driver;
+	public Properties prop;
+	public FileInputStream fs;
+
+	public void initializeBrowser(String browser) {
 		prop = new Properties();
 		try {
-			fs =new FileInputStream(Constants.CONFIG_FILE);
+			fs = new FileInputStream(Constants.CONFIG_FILE);
 			prop.load(fs);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
-		
-		
-		if(browser.equals("Chrome"))
-		{
-			driver =new ChromeDriver();
-			
-		}
-		else if(browser.equals("Edge"))
-		{
-			driver =new EdgeDriver();
-		}
-		else if(browser.equals("Firefox"))
-		{
-			driver =new FirefoxDriver();
-		}
-		else
-		{
+
+		if (browser.equals("Chrome")) {
+			driver = new ChromeDriver();
+
+		} else if (browser.equals("Edge")) {
+			driver = new EdgeDriver();
+		} else if (browser.equals("Firefox")) {
+			driver = new FirefoxDriver();
+		} else {
 			throw new RuntimeException("invalid browser");
 		}
-		
-		//driver.get("https://qalegend.com/billing/public/login");
+
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
 	}
-	
-	@BeforeMethod
+
+	@BeforeMethod(alwaysRun = true)
 	@Parameters("browser")
-	public void setUp(String browser_name)
-		{
-			 initializeBrowser(browser_name);
-		}
+	public void setUp(String browser_name) {
+		initializeBrowser(browser_name);
+		WaitUtility.waitUsingImplicitWait(driver);
+	}
 
-
-	@AfterMethod
-	public void closeBrower(ITestResult result) throws IOException
-	{
-		if(result.getStatus()==ITestResult.FAILURE)
-		{
+	@AfterMethod(alwaysRun = true)
+	public void closeBrower(ITestResult result) throws IOException {
+		if (result.getStatus() == ITestResult.FAILURE) {
 			takeScreenShot(result);
 		}
-	driver.close();
-		
+		driver.close();
+
 	}
-	
-	public void takeScreenShot(ITestResult result) throws IOException
-	{
-		TakesScreenshot takescreenshot =(TakesScreenshot)driver;
+
+	public void takeScreenShot(ITestResult result) throws IOException {
+		TakesScreenshot takescreenshot = (TakesScreenshot) driver;
 		File screenshot = takescreenshot.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshot, new File("./Screenshot/"+result.getName()+".png"));
+		FileUtils.copyFile(screenshot, new File("./Screenshot/" + result.getName() + ".png"));
 	}
 }
