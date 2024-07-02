@@ -1,6 +1,7 @@
 package utilities;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -47,6 +48,17 @@ public class PageUtility {
 
 	public static void simpleAlertWithAccept(WebDriver driver) {
 		Alert alert = driver.switchTo().alert();
+		alert.accept();
+	}
+
+	public static void forConformationAlert(WebDriver driver) {
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+	}
+
+	public static void forPromptAlert(WebDriver driver, String value) {
+		Alert alert = driver.switchTo().alert();
+		alert.sendKeys(value);
 		alert.accept();
 	}
 
