@@ -26,22 +26,22 @@ public class PageUtility {
 		select.selectByIndex(index);
 	}
 
-	public static void doubleClick(WebElement element, WebDriver driver) {
+	public static void actionForDoubleClick(WebElement element, WebDriver driver) {
 		Actions action = new Actions(driver);
 		action.doubleClick(element).build().perform();
 	}
 
-	public static void contextClick(WebDriver driver, WebElement element) {
+	public static void actionForContextClick(WebDriver driver, WebElement element) {
 		Actions action = new Actions(driver);
 		action.contextClick(element).build().perform();
 	}
 
-	public static void drapAndDrop(WebDriver driver, WebElement dragelement, WebElement dropelement) {
+	public static void actionForDrapAndDrop(WebDriver driver, WebElement dragelement, WebElement dropelement) {
 		Actions action = new Actions(driver);
 		action.dragAndDrop(dragelement, dropelement).build().perform();
 	}
 
-	public static void moveToElement(WebDriver driver, WebElement element) {
+	public static void actionForMouseHover(WebDriver driver, WebElement element) {
 		Actions action = new Actions(driver);
 		action.moveToElement(element).build().perform();
 	}
